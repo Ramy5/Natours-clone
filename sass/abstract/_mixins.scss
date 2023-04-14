@@ -1,0 +1,55 @@
+@mixin position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-bt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// MIXINS FOR MANAGE RESPNSIVE (MEDIA QUERY)
+/*
+- 0 - 600px         => Phone
+- 600px - 900px     => Tablet portrait
+- 900px - 1200px    => Tablet landscape
+- [1200px - 1800px] => normal desktop
+- 1800px -  ...     => big desktop
+
+- 1em = 16px
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    // 600px / 16px = 37.5em
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      // 900px / 16px = 56.25em
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      // 1200px / 16px = 75em
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (max-width: 112.5em) {
+      // 1800px / 16px = 112.5em
+      @content;
+    }
+  }
+}

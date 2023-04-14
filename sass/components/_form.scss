@@ -1,0 +1,113 @@
+.form {
+  &__group {
+    margin-bottom: 2rem;
+
+    .form__input {
+      width: 90%;
+      display: block;
+      padding: 1.5rem 2rem;
+      border: none;
+      border-radius: $main-border;
+      border-bottom: 3px solid transparent;
+      background-color: rgba($white-color, 0.7);
+      transition: all 0.4s ease;
+      font-family: inherit;
+      color: $dark-gray-color;
+      font-size: 1.7rem;
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
+
+      &:focus {
+        outline: none;
+        border-bottom: 3px solid $primary-color-dark;
+        box-shadow: 0 1.5rem 4rem rgba($black-color, 0.1);
+
+        &:invalid {
+          border-bottom: 3px solid $secondary-color-dark;
+        }
+      }
+
+      &::placeholder {
+        color: $light-gray-color-3;
+        font-size: 1.5rem;
+      }
+    }
+
+    .form__label {
+      margin-left: 2rem;
+      font-size: 1.3rem;
+      transition: all 0.4s ease;
+      display: inline-block;
+    }
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-3rem);
+  }
+
+  &__tour-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+
+    @include respond(phone) {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .form__radio-group {
+      font-size: 1.7rem;
+      display: flex;
+      align-items: center;
+      transition: all 0.4s ease;
+
+      @include respond(tab-port) {
+        margin-bottom: 2rem;
+      }
+
+      .custom__radio {
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: 4px solid $primary-color-dark;
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          width: 1.5rem;
+          height: 1.5rem;
+          background-color: $primary-color-dark;
+          @include position-center;
+          border-radius: 50%;
+          opacity: 0;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .form__radio-input {
+        display: none;
+      }
+
+      .form__radio-label {
+        cursor: pointer;
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  &__radio-input:checked ~ .custom__radio::after {
+    opacity: 1;
+  }
+
+  .btn--green {
+    margin-top: 1.5rem;
+  }
+}

@@ -1,0 +1,39 @@
+.u-text-c {
+  text-align: center !important;
+}
+
+.u-margin-b-s {
+  margin-bottom: 1.5rem !important;
+}
+
+.u-margin-b-m {
+  margin-bottom: 4rem !important;
+}
+
+.u-margin-b-l {
+  margin-bottom: 6rem !important;
+}
+
+.u-margin-b-xl {
+  margin-bottom: 8rem !important;
+}
+
+.u-margin-t-s {
+  margin-top: 1.5 !important;
+}
+
+.u-margin-t-m {
+  margin-top: 4rem !important;
+}
+
+.u-margin-t-l {
+  margin-top: 6rem !important;
+}
+
+.u-margin-t-xl {
+  margin-top: 8rem !important;
+
+  @include respond(tab-port) {
+    margin-top: 6rem !important;
+  }
+}
